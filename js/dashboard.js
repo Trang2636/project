@@ -20,7 +20,7 @@ myProject.onclick = function () {
 
 let myTask = document.getElementById("myTask");
 myTask.onclick = function () {
-    window.location.href = "detail-project.html";
+    window.location.href = "category-manager.html";
 };
 
 let users = JSON.parse(localStorage.getItem("user"));

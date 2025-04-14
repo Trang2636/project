@@ -63,10 +63,10 @@ document.getElementById("registerBtn").addEventListener("click", function (event
 
     if (isValid) {
         let fullName = document.getElementById("name").value.trim();
-        let id = users.length ? users[users.length - 1].id + 1 : 1;
+        // let id = users.length ? users[users.length - 1].id + 1 : 1;
 
         let userData = {
-            id: id,
+            id: Date.now(),
             fullName,
             email,
             password

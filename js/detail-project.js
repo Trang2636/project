@@ -526,37 +526,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 if (emailInput && emailInput.value.trim() === "") {
-                    if (errorCheck) {
                         errorCheck.innerHTML = "Email không được để trống";
                         errorCheck.style.display = "block";
-                    }
                     return;
                 }
 
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (emailInput && !emailPattern.test(emailInput.value.trim())) {
-                    if (errorCheck) {
+                // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailInput &&emailInput.value.trim().endsWith("@gmail.comcom")) {  
                         errorCheck.innerHTML = "Email không hợp lệ";
                         errorCheck.style.display = "block";
-                    }
+                    
                     return;
                 }
 
                 let user = users.find(u => u.email === emailInput.value.trim());
                 if (!user) {
-                    if (errorCheck) {
                         errorCheck.innerHTML = "Email không tồn tại trong hệ thống";
                         errorCheck.style.display = "block";
-                    }
                     return;
                 }
 
                 let projectIndex = projects.findIndex(p => p.id === currentIdProject);
                 if (projectIndex === -1) {
-                    if (errorCheck) {
                         errorCheck.innerHTML = "Dự án không tồn tại";
                         errorCheck.style.display = "block";
-                    }
                     return;
                 }
 
@@ -566,10 +559,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 let isDuplicate = projects[projectIndex].members.some(m => m.userId === user.id);
                 if (isDuplicate) {
-                    if (errorCheck) {
                         errorCheck.innerHTML = "Thành viên đã tồn tại trong dự án";
                         errorCheck.style.display = "block";
-                    }
                     return;
                 }
 
@@ -579,12 +570,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 localStorage.setItem("projects", JSON.stringify(projects));
-                if (emailInput) emailInput.value = "";
-                if (userPosition) userPosition.value = "";
+ emailInput.value = "";
+  userPosition.value = "";
                 let memberModal = document.getElementById("memberModal");
-                if (memberModal) {
                     memberModal.style.display = "none";
-                }
                 renderMember();
                 assigneeName();
             };
