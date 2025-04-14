@@ -1,0 +1,215 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+.container {
+    
+    margin-left: 110px;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+nav {
+    width: 100%;
+    height: 56px;
+    background-color: #212529;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.table-dark .table-one {
+    width: 1000px;
+}
+
+.right-nav {
+    width: 284px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 15.92px;
+    margin-right: 0px;
+    font-size: 14.25px;
+    padding-top: 15px;
+}
+
+.left-nav {
+    margin-left: 125px;
+    font-size: 19.75px;
+    padding-top: 13px;
+}
+
+footer {
+    text-align: center;
+    background-color: #212529;
+    color: aliceblue;
+    width: 100%;
+    height: 56px;
+    padding: 10px ;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.pagination {
+    margin-left: 600px;
+    margin-top: -100px;
+    position: relative;
+    z-index: 1;
+}
+
+#add-project {
+    flex-direction: column;
+    width: 480px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 8px -4px #10182808;
+    box-shadow: 0px 20px 24px -4px #10182814;
+    background-color: white;
+    padding: 20px 20px;
+}
+
+#addBox {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+.add-project h3 {
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+.infor {
+    display: flex;
+    flex-direction: column;
+}
+
+.infor input {
+    border-radius: 8px;
+    border: 1px solid rgb(196, 195, 195);
+}
+
+.more textarea {
+    border-radius: 8px;
+    border: 1px solid rgb(196, 195, 195);
+}
+
+.more {
+    display: flex;
+    flex-direction: column;
+}
+
+.save {
+    display: flex;
+    gap: 10px;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+}
+
+#save {
+    color: white;
+    background-color: #0D6EFD;
+    border: none;
+    width: 50px;
+    height: 30px;
+    border-radius: 8px;
+}
+
+#cancel {
+    color: white;
+    background-color: #6C757D;
+    border: none;
+    width: 50px;
+    height: 30px;
+    border-radius: 8px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+#confirmDeleteBox {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+#delete-project {
+    flex-direction: column;
+    width: 480px;
+    height: 278px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 8px -4px #10182808;
+    box-shadow: 0px 20px 24px -4px #10182814;
+    background-color: white;
+    padding: 20px 20px;
+
+}
+
+.butt {
+    margin-top: 130px;
+    text-align: end;
+}
+
+#cancel-one {
+    width: 80px;
+    height: 37px;
+    border-radius: 8px;
+    background-color: grey;
+    color: #ffffff;
+    border: none;
+}
+
+#delete {
+    width: 80px;
+    height: 37px;
+    border-radius: 8px;
+    background-color: red;
+    color: #ffffff;
+    border: none;
+    margin-left: 20px;
+}
+
+.right-nav p{
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+
+.right-nav p:active{
+    color: #403d3d;
+}
+
+.disabled{
+    color: #0D6EFD;
+    background-color: azure;
+}
+
+.btn-primary{
+    background-color: #0D6EFD;
+    color: #ffffff;
+}

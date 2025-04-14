@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/category-manager.css">
+</head>
+
+<body>
+    <nav>
+        <p class="left-nav">Quản Lý Dự Án</p>
+        <div class="right-nav">
+            <p id="myProject">Dự Án</p>
+            <p id="myTask">Nhiệm vụ của tôi</p>
+            <p id="logOut">Đăng xuất</p>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="table-responsive">
+            <section class="infoTable">
+                <h2>Danh Sách Nhiệm Vụ</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col1">Tên Nhiệm Vụ</th>
+                            <th class="col2">Người Phụ Trách</th>
+                            <th class="col3">Ưu Tiên</th>
+                            <th class="col4">Ngày Bắt Đầu</th>
+                            <th class="col5">Hạn Chót</th>
+                            <th class="col6">Tiến độ</th>
+                            <th class="col7">Hành động</th>
+                        </tr>
+                    </thead>
+                </table>
+                <details open>
+                    <summary><strong>To do</strong></summary>
+                    <table class="toDo">
+                        <tr>
+                            <td>Xây dựng website thương mại điện tử</td>
+                            <td>Soạn thảo đề cương dự án</td>
+                            <td><span class="priority medium">Trung bình</span></td>
+                            <td>02-24</td>
+                            <td>02-27</td>
+                            <td><span class="status in-progress">In progress</span></td>
+                            <td class="action-buttons">
+                                <button class="edit">Chỉnh Sửa</button>
+                                <button class="delete">Xóa</button>
+                            </td>
+                        </tr>
+                    </table>
+                </details>
+                <details>
+                    <summary><strong>In Progress</strong></summary>
+                    <table class="inProgress">
+                        <tr>
+                            <td>Xây dựng website thương mại điện tử</td>
+                            <td>Soạn thảo đề cương dự án</td>
+                            <td><span class="priority low">Thấp</span></td>
+                            <td>02-24</td>
+                            <td>02-27</td>
+                            <td><span class="status in-progress">In progress</span></td>
+                            <td class="action-buttons">
+                                <button class="edit">Chỉnh Sửa</button>
+                                <button class="delete">Xóa</button>
+                            </td>
+                        </tr>
+                    </table>
+                </details>
+                <details>
+                    <summary><strong>Pending</strong></summary>
+                    <table class="pending">
+                        <tr>
+                            <td>Xây dựng website thương mại điện tử</td>
+                            <td>Soạn thảo đề cương dự án</td>
+                            <td><span class="priority high">Cao</span></td>
+                            <td>02-24</td>
+                            <td>02-27</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td class="action-buttons">
+                                <button class="edit">Thêm</button>
+                                <button class="delete">Hủy</button>
+                            </td>
+                        </tr>
+                    </table>
+                </details>
+                <details>
+                    <summary><strong>Done</strong></summary>
+                    <table class="done">
+                        <tr>
+                            <td>Phát triển ứng dụng đặt lịch họp</td>
+                            <td>Lịch họp kickoff</td>
+                            <td><span class="priority medium">Trung bình</span></td>
+                            <td>02-24</td>
+                            <td>02-27</td>
+                            <td><span class="status in-progress">In progress</span></td>
+                            <td class="action-buttons">
+                                <button class="edit">Cập nhật</button>
+                                <button class="delete">Hủy</button>
+                            </td>
+                        </tr>
+                    </table>
+                </details>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Team management. All rights reserved.</p>
+    </footer>
+<script></script>
+</body>
+
+</html>

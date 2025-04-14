@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <nav>
+        <p class="left-nav">Quản Lý Dự Án</p>
+        <div class="right-nav">
+            <p id="myProject">Dự Án</p>
+            <p id="myTask">Nhiệm vụ của tôi</p>
+            <p id="logOut">Đăng xuất</p>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h4 class="fw-bold">Quản Lý Dự Án Nhóm</h4>
+        <button class="btn btn-primary mb-3" id="btn-addProject">+ Thêm Dự Án</button>
+        <input type="text" class="form-control mb-3" id="findProjectName" placeholder="Tìm kiếm dự án">
+
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th class="table-one">Tên Dự Án</th>
+                    <th>Hành Động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>1</td>
+                    <td id="name">Xây dựng website thương mại điện tử</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm">Sửa</button>
+                        <button class="btn btn-danger btn-sm">Xóa</button>
+                        <button class="btn btn-primary btn-sm" id="detailBtn">Chi tiết</button>
+                    </td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <ul class="pagination">
+        <li class="page-item disabled">
+            <a class="page-link" id="btnPre" href="#">Previous</a>
+        </li>
+       <div id="btnPage">
+       
+       </div>
+        <li class="page-item">
+            <a class="page-link" id="btnNext" href="#">Next</a>
+        </li>
+    </ul>
+    <footer>
+        <p>© 2025 Team management. All rights reserved.</p>
+    </footer>
+    <div id="addBox">
+        <div id="add-project">
+            <div class="nav">
+                <h3>Thêm/Sửa dự án</h3>
+            </div>
+            <div class="infor">
+                <label for="projectName">Tên dự án</label>
+                <input type="text" id="projectName" name="projectName" id="mustCheck">
+                <span id="error-name"></span>
+                <span id="exist"></span>
+            </div>
+            <div class="more">
+                <label for="descrip">Mô tả dự án</label>
+                <textarea type="text" id="description" name="description" id="mustCheck"></textarea>
+                <span id="error-descrip"></span>
+            </div>
+            <div class="save">
+                <button id="cancel">Hủy</button>
+                <button id="save">Lưu</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmDeleteBox">
+<div id="delete-project">
+    <h3>Xác nhận xóa</h3>
+    <p>Bạn có chắc muốn xóa dự án này?</p>
+    <div class="butt">
+        <button id="cancel-one">Hủy</button>
+        <button id="delete">Xóa</button>
+    </div>
+</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+
+</html>

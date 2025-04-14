@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <form id="registerForm">
+            <h1>Đăng ký</h1>
+
+            <input type="text" id="name" placeholder="Họ và tên">
+            <span id="error-name" class="error">Không được bỏ trống</span>
+
+            <input type="email" id="email" placeholder="Địa chỉ email">
+            <span id="error-email" class="error">Email không hợp lệ hoặc đã tồn tại</span>
+
+            <input type="password" id="password" placeholder="Mật khẩu">
+            <span id="error-password" class="error">Mật khẩu phải tối thiểu 8 kí tự</span>
+
+            <input type="password" id="confirm" placeholder="Xác nhận mật khẩu">
+            <span id="error-confirm" class="error">Mật khẩu xác nhận không khớp</span>
+
+            <button type="submit" id="registerBtn">Đăng ký</button>
+            <div class="footer">
+                <p>Đã có tài khoản?</p>
+                <a href="./login.html" id="logIn">Đăng nhập</a>
+            </div>
+        </form>
+
+        
+    </div>
+
+    <script src="../js/register.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Nhiệm Vụ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/detail-project.css">
+</head>
+
+<body>
+    <nav>
+        <p class="left-nav">Quản Lý Dự Án</p>
+        <div class="right-nav">
+            <p id="myProject">Dự Án</p>
+            <p id="myTask">Nhiệm vụ của tôi</p>
+            <p id="logOut">Đăng xuất</p>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="mini-1">
+            <h3 id="nameProject"></h3>
+            <h3>Thành viên</h3>
+            <button id="add" class="add">+Thêm thành viên</button>
+        </div>
+        <div class="mini-2">
+            <p id="infor-project"></p>
+            <ul class="person" id="memberList">
+            </ul>
+            <p id="showAllMembers">. . .</p>
+        </div>
+        <div class="mini-3">
+            <button class="btn btn-primary mb-3" id="addBtn">+ Thêm nhiệm vụ</button>
+            <div class="find">
+                <select id="select">
+                    <option value="" selected hidden disabled>Sắp xếp theo</option>
+                    <option value="Tiến độ">Tiến độ</option>
+                    <option value="Ưu tiên">Ưu tiên</option>
+                </select>
+                <input id="find-project" type="text" placeholder="Tìm kiếm nhiệm vụ">
+            </div>
+        </div>
+        <div class="table-responsive">
+            <section class="infoTable">
+                <h2>Danh Sách Nhiệm Vụ</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col1">Tên Nhiệm Vụ</th>
+                            <th class="col2">Người Phụ Trách</th>
+                            <th class="col3">Ưu Tiên</th>
+                            <th class="col4">Ngày Bắt Đầu</th>
+                            <th class="col5">Hạn Chót</th>
+                            <th class="col6">Tiến độ</th>
+                            <th class="col7">Hành động</th>
+                        </tr>
+                    </thead>
+                </table>
+                <details open>
+                    <summary><strong>To do</strong></summary>
+                    <table class="toDo">
+                    </table>
+                </details>
+                <details>
+                    <summary><strong>In Progress</strong></summary>
+                    <table class="inProgress">
+                    </table>
+                </details>
+                <details>
+                    <summary><strong>Pending</strong></summary>
+                    <table class="pending">
+                    </table>
+                </details>
+                <details>
+                    <summary><strong>Done</strong></summary>
+                    <table class="done">
+                    </table>
+                </details>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Team management. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal thêm/sửa nhiệm vụ -->
+    <div class="modal" id="modal">
+        <div id="modal-text">
+            <h2>Thêm/Sửa Nhiệm Vụ</h2>
+            <button id="deleteBtn">X</button>
+            <div class="form-group">
+                <label for="task-name">Tên nhiệm vụ</label>
+                <input type="text" id="task-name" placeholder="Nhập tên nhiệm vụ">
+                <p class="error" id="error-message"></p>
+            </div>
+            <div class="form-group">
+                <label for="assignee">Người phụ trách</label>
+                <select id="assignee">
+                    <option value="" selected hidden disabled>Chọn người phụ trách</option>
+                    <!-- <option value=""></option> -->
+                </select>
+                <p id="error-assignee"></p>
+            </div>
+            <div class="form-group">
+                <label for="status">Trạng thái</label>
+                <select id="status">
+                    <option value="" selected hidden disabled>Chọn trạng thái nhiệm vụ</option>
+                    <option value="inProgress" id="inProgress">In progress</option>
+                    <option value="toDo" id="toDo">To Do</option>
+                    <option value="pending" id="pending">Pending</option>
+                    <option value="done" id="done">Done</option>
+                </select>
+                <p id="error-status"></p>
+            </div>
+            <div class="form-group">
+                <label for="start-date">Ngày bắt đầu</label>
+                <input type="date" id="start-date">
+                <p id="error-date"></p>
+            </div>
+            <div class="form-group">
+                <label for="due-date">Hạn cuối</label>
+                <input type="date" id="due-date">
+                <p id="error-deadline"></p>
+            </div>
+            <div class="form-group">
+                <label for="priority">Độ ưu tiên</label>
+                <select id="priority">
+                    <option value="" selected hidden disabled>Chọn độ ưu tiên</option>
+                    <option value="Thấp" id="low">Thấp</option>
+                    <option value="Cao" id="high">Cao</option>
+                    <option value="Trung bình" id="medium">Trung bình</option>
+                </select>
+                <p id="error-priority"></p>
+            </div>
+            <div class="form-group">
+                <label for="progress">Tiến độ</label>
+                <select id="progress">
+                    <option value="" selected hidden disabled>Chọn tiến độ</option>
+                    <option value="Trễ hạn">Trễ hạn</option>
+                    <option value="Đúng tiến độ">Đúng tiến độ</option>
+                    <option value="Có rủi ro">Có rủi ro</option>
+                </select>
+                <p id="error-progress"></p>
+            </div>
+            <div class="buttons">
+                <button class="cancel">Hủy</button>
+                <button class="save" id="save-btn">Lưu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal xác nhận xóa -->
+    <div id="confirmDeleteBox">
+        <div id="delete-project">
+            <h3>Xác nhận xóa</h3>
+            <p>Bạn có chắc muốn xóa dự án này?</p>
+            <div class="butt">
+                <button id="cancel-one">Hủy</button>
+                <button id="delete">Xóa</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal hiển thị danh sách thành viên -->
+    <div class="allMembers" id="allMembersModal" style="display: none;">
+        <div class="membersContent">
+            <h2>Danh sách thành viên</h2>
+            <ul id="allMembersList">
+            </ul>
+            <div class="buttons">
+                <button class="cancel" id="closeAllMembers">Đóng</button>
+                <button class="save" id="saveAllMembers">Lưu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal thêm/sửa thành viên -->
+    <div class="modal" id="memberModal">
+        <div id="modal-content-1">
+            <h4>Thêm/Sửa thành viên</h4>
+            <div class="form-1">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <p class="error-check"></p>
+            </div>
+            <div class="form-1">
+                <label for="userPosition">Vai trò</label>
+                <input type="text" name="userPosition" id="userPosition">
+            </div>
+            <div class="buttons">
+                <button class="cancel" id="cancel">Hủy</button>
+                <button class="save">Lưu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/detail-project.js"></script>
+</body>
+
+</html>
