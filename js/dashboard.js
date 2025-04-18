@@ -268,6 +268,7 @@ function updatePagination(totalVisible) {
         btnPageElement.appendChild(btnElement);
     }
 
+    //bật (enabled) hoặc tắt (disabled)
     if (currentPage > 1) {
         btnPre.classList.remove("disabled");
         btnPre.style.pointerEvents = "auto";

@@ -19,42 +19,42 @@ document.addEventListener("DOMContentLoaded", function () {
     let editingIndex = -1;
     let searchValue = "";
 
-        myProject.onclick = function () {
-            window.location.href = "category-manager.html";
+    myProject.onclick = function () {
+        window.location.href = "category-manager.html";
+    }
+
+    myTask.onclick = function () {
+        window.location.href = "dashboard.html";
+    }
+
+    logOutBtn.onclick = function () {
+        window.location.href = "login.html";
+    };
+
+    cancel.onclick = function () {
+        let addMemberBox = document.getElementById("memberModal");
+        if (addMemberBox) {
+            addMemberBox.style.display = "none";
         }
+    };
 
-        myTask.onclick = function () {
-            window.location.href = "dashboard.html";
+    deleteBtn.onclick = function () {
+        if (modal) {
+            modal.style.display = "none";
+            document.getElementById("task-name").value = "";
+            document.getElementById("assignee").value = "";
+            document.getElementById("start-date").value = "";
+            document.getElementById("due-date").value = "";
+            document.getElementById("priority").value = "";
+            document.getElementById("progress").value = "";
+            document.getElementById("status").value = "";
+            editingIndex = -1;
+            let saveBtn = document.getElementById("save-btn");
+            if (saveBtn) {
+                saveBtn.classList.remove("save-edit", "save-add");
+            }
         }
-
-        logOutBtn.onclick = function () {
-            window.location.href = "login.html";
-        };
-
-        cancel.onclick = function () {
-            let addMemberBox = document.getElementById("memberModal");
-            if (addMemberBox) {
-                addMemberBox.style.display = "none";
-            }
-        };
-
-        deleteBtn.onclick = function () {
-            if (modal) {
-                modal.style.display = "none";
-                document.getElementById("task-name").value = "";
-                document.getElementById("assignee").value = "";
-                document.getElementById("start-date").value = "";
-                document.getElementById("due-date").value = "";
-                document.getElementById("priority").value = "";
-                document.getElementById("progress").value = "";
-                document.getElementById("status").value = "";
-                editingIndex = -1;
-                let saveBtn = document.getElementById("save-btn");
-                if (saveBtn) {
-                    saveBtn.classList.remove("save-edit", "save-add");
-                }
-            }
-        };
+    };
 
     let detailIndex = projects.findIndex(i => i.id === currentIdProject);
     let nameProject = document.getElementById("nameProject");
@@ -370,15 +370,15 @@ document.addEventListener("DOMContentLoaded", function () {
                         displayProject();
                     }
                 } else if (saveBtn.classList.contains("save-edit")) {
-                    let isDuplicate = tasks.some(task => task.taskName === taskName.value.trim() && task.projectId === currentIdProject);
-                    if (isDuplicate) {
-                        if (errorMessage) {
-                            errorMessage.style.display = "block";
-                            errorMessage.textContent = "Nhiệm vụ đã tồn tại";
-                            errorMessage.style.color = "red";
-                        }
-                        return;
-                    }
+                    // let isDuplicate = tasks.some(task => task.taskName === taskName.value.trim() && task.projectId === currentIdProject);
+                    // if (isDuplicate) {
+                    //     if (errorMessage) {
+                    //         errorMessage.style.display = "block";
+                    //         errorMessage.textContent = "Nhiệm vụ đã tồn tại";
+                    //         errorMessage.style.color = "red";
+                    //     }
+                    //     return;
+                    // }
                     tasks[editingIndex].taskName = taskName.value.trim();
                     tasks[editingIndex].assignee = assignee.value.trim();
                     tasks[editingIndex].asignDate = asignDate.value;
@@ -471,7 +471,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
         memberList.innerHTML = "";
-        
+
         let project = projects.find(p => p.id === currentIdProject);
         if (!project || !project.members) {
             return;
@@ -482,7 +482,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (user) {
                 let li = document.createElement("li");
                 let initials = getInitials(user.fullName);
-                
+
                 li.innerHTML = `
                     <div class="member-item">
                         <button class="avt avt-color-${index % 3}">${initials}</button>
@@ -526,30 +526,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 if (emailInput && emailInput.value.trim() === "") {
-                        errorCheck.innerHTML = "Email không được để trống";
-                        errorCheck.style.display = "block";
+                    errorCheck.innerHTML = "Email không được để trống";
+                    errorCheck.style.display = "block";
                     return;
                 }
 
                 // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (emailInput &&emailInput.value.trim().endsWith("@gmail.comcom")) {  
-                        errorCheck.innerHTML = "Email không hợp lệ";
-                        errorCheck.style.display = "block";
-                    
+                if (emailInput && emailInput.value.trim().endsWith("@gmail.comcom")) {
+                    errorCheck.innerHTML = "Email không hợp lệ";
+                    errorCheck.style.display = "block";
+
                     return;
                 }
 
                 let user = users.find(u => u.email === emailInput.value.trim());
                 if (!user) {
-                        errorCheck.innerHTML = "Email không tồn tại trong hệ thống";
-                        errorCheck.style.display = "block";
+                    errorCheck.innerHTML = "Email không tồn tại trong hệ thống";
+                    errorCheck.style.display = "block";
                     return;
                 }
 
                 let projectIndex = projects.findIndex(p => p.id === currentIdProject);
                 if (projectIndex === -1) {
-                        errorCheck.innerHTML = "Dự án không tồn tại";
-                        errorCheck.style.display = "block";
+                    errorCheck.innerHTML = "Dự án không tồn tại";
+                    errorCheck.style.display = "block";
                     return;
                 }
 
@@ -559,8 +559,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 let isDuplicate = projects[projectIndex].members.some(m => m.userId === user.id);
                 if (isDuplicate) {
-                        errorCheck.innerHTML = "Thành viên đã tồn tại trong dự án";
-                        errorCheck.style.display = "block";
+                    errorCheck.innerHTML = "Thành viên đã tồn tại trong dự án";
+                    errorCheck.style.display = "block";
                     return;
                 }
 
@@ -570,10 +570,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 localStorage.setItem("projects", JSON.stringify(projects));
- emailInput.value = "";
-  userPosition.value = "";
+                emailInput.value = "";
+                userPosition.value = "";
                 let memberModal = document.getElementById("memberModal");
-                    memberModal.style.display = "none";
+                memberModal.style.display = "none";
                 renderMember();
                 assigneeName();
             };
@@ -586,7 +586,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
         allMembersList.innerHTML = "";
-        
+
         let project = projects.find(p => p.id === currentIdProject);
         if (!project) {
             return;
@@ -601,7 +601,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (user) {
                 let li = document.createElement("li");
                 let initials = getInitials(user.fullName);
-                
+
                 li.innerHTML = `
                     <div class="member-row">
                         <div class="member-info">
